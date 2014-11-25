@@ -20,7 +20,7 @@ class ToDoListTableViewController: UITableViewController {
     
     func readToDoItemsFromUserDefaults() {
         let data = self.defaults.objectForKey("toDoItems") as? NSData
-        if data != nil || data == [] {
+        if data != nil {
             self.toDoItems = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as [ToDoItem]
         } else {
             self.writeToDoItemsToUserDefaults()
@@ -62,6 +62,18 @@ class ToDoListTableViewController: UITableViewController {
         tappedItem.completed = !tappedItem.completed
         self.writeToDoItemsToUserDefaults()
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            self.toDoItems.removeAtIndex(indexPath.row)
+            self.writeToDoItemsToUserDefaults()
+            self.tableView.reloadData()
+        }
     }
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
