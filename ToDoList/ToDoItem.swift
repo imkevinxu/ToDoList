@@ -16,7 +16,7 @@ class ToDoItem: NSObject {
     var completed: Bool = false
     private var creationDate: NSDate
     
-    // MARK: Init methods
+    // MARK: Initializers
     
     init(itemName: String) {
         self.itemName = itemName

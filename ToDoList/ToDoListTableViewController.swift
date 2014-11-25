@@ -15,29 +15,14 @@ class ToDoListTableViewController: UITableViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     var toDoItems: [ToDoItem] = []
     
-    // MARK: NSUserDefaults helper methods
-    
-    func writeToDoItemsToUserDefaults() {
-        let data = NSKeyedArchiver.archivedDataWithRootObject(self.toDoItems) as NSData?
-        self.defaults.setObject(data, forKey: "toDoItems")
-        self.defaults.synchronize()
-    }
-    
-    func readToDoItemsFromUserDefaults() {
-        let data = self.defaults.objectForKey("toDoItems") as? NSData
-        if data != nil {
-            self.toDoItems = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as [ToDoItem]
-        } else {
-            self.writeToDoItemsToUserDefaults()
-        }
-    }
-    
-    // MARK: Table view controller
+    // MARK: View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.readToDoItemsFromUserDefaults()
     }
+    
+    // MARK: UITableViewDataSource
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -59,16 +44,6 @@ class ToDoListTableViewController: UITableViewController {
         return cell
     }
     
-    // MARK: Table view delegate
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        let tappedItem = self.toDoItems[indexPath.row]
-        tappedItem.completed = !tappedItem.completed
-        self.writeToDoItemsToUserDefaults()
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-    }
-    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -81,8 +56,18 @@ class ToDoListTableViewController: UITableViewController {
         }
     }
     
-    // MARK: Segue methods
+    // MARK: UITableViewDelegate
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        let tappedItem = self.toDoItems[indexPath.row]
+        tappedItem.completed = !tappedItem.completed
+        self.writeToDoItemsToUserDefaults()
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+    }
+    
+    // MARK: IBActions
+
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
         let source = segue.sourceViewController as AddToDoItemViewController
         let item = source.todoItem
@@ -90,6 +75,23 @@ class ToDoListTableViewController: UITableViewController {
             self.toDoItems.append(newItem)
             self.writeToDoItemsToUserDefaults()
             self.tableView.reloadData()
+        }
+    }
+    
+    // MARK: Convenience
+    
+    func writeToDoItemsToUserDefaults() {
+        let data = NSKeyedArchiver.archivedDataWithRootObject(self.toDoItems) as NSData?
+        self.defaults.setObject(data, forKey: "toDoItems")
+        self.defaults.synchronize()
+    }
+    
+    func readToDoItemsFromUserDefaults() {
+        let data = self.defaults.objectForKey("toDoItems") as? NSData
+        if data != nil {
+            self.toDoItems = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as [ToDoItem]
+        } else {
+            self.writeToDoItemsToUserDefaults()
         }
     }
     

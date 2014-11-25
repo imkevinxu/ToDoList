@@ -16,7 +16,7 @@ class AddToDoItemViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
-    // MARK: Init methods
+    // MARK: View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
