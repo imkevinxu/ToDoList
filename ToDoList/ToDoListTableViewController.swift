@@ -9,19 +9,29 @@
 import UIKit
 
 class ToDoListTableViewController: UITableViewController {
+    let defaults = NSUserDefaults.standardUserDefaults()
     var toDoItems: [ToDoItem] = []
     
-    func loadInitialData() {
-        self.toDoItems.append(ToDoItem(itemName: "Buy milk"))
-        self.toDoItems.append(ToDoItem(itemName: "Buy eggs"))
-        self.toDoItems.append(ToDoItem(itemName: "Read a book"))
+    func writeToDoItemsToUserDefaults() {
+        let data = NSKeyedArchiver.archivedDataWithRootObject(self.toDoItems) as NSData?
+        self.defaults.setObject(data, forKey: "toDoItems")
+        self.defaults.synchronize()
+    }
+    
+    func readToDoItemsFromUserDefaults() {
+        let data = self.defaults.objectForKey("toDoItems") as? NSData
+        if data != nil || data == [] {
+            self.toDoItems = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as [ToDoItem]
+        } else {
+            self.writeToDoItemsToUserDefaults()
+        }
     }
     
     // MARK: Table view controller
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadInitialData()
+        self.readToDoItemsFromUserDefaults()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -50,10 +60,18 @@ class ToDoListTableViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         let tappedItem = self.toDoItems[indexPath.row]
         tappedItem.completed = !tappedItem.completed
+        self.writeToDoItemsToUserDefaults()
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
     }
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
-        
+        let source = segue.sourceViewController as AddToDoItemViewController
+        let item = source.todoItem
+        if let newItem = item {
+            self.toDoItems.append(newItem)
+            self.writeToDoItemsToUserDefaults()
+            self.tableView.reloadData()
+        }
     }
+    
 }

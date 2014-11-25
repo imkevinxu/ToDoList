@@ -43,6 +43,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="Wem-oq-NtP" id="oeP-l8-XvW"/>
+                        <outlet property="textField" destination="ZBK-AI-u1D" id="rXO-oW-sHj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <exit id="utN-JT-AtW" userLabel="Exit" sceneMemberID="exit"/>

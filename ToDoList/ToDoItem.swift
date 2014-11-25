@@ -11,7 +11,7 @@ import UIKit
 class ToDoItem: NSObject {
     var itemName: String
     var completed: Bool = false
-    private let creationDate: NSDate
+    private var creationDate: NSDate
     
     init(itemName: String) {
         self.itemName = itemName
@@ -21,5 +21,17 @@ class ToDoItem: NSObject {
     
     override var description: String {
         return "ToDoItem: \(itemName)"
+    }
+    
+    func initWithCoder(decoder: NSCoder) -> ToDoItem {
+        itemName = decoder.decodeObjectForKey("itemName") as String
+        completed = decoder.decodeBoolForKey("completed")
+        return self
+    }
+    
+    func encodeWithCoder(encoder: NSCoder) {
+        encoder.encodeObject(itemName, forKey: "itemName")
+        encoder.encodeBool(completed, forKey: "completed")
+        encoder.encodeObject(creationDate, forKey: "creationDate")
     }
 }
