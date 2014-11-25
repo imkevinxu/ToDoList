@@ -9,13 +9,15 @@
 import UIKit
 
 class ToDoListTableViewController: UITableViewController {
-    var todoItems: [ToDoItem] = []
+    var toDoItems: [ToDoItem] = []
     
     func loadInitialData() {
-        self.todoItems.append(ToDoItem(itemName: "Buy milk"))
-        self.todoItems.append(ToDoItem(itemName: "Buy eggs"))
-        self.todoItems.append(ToDoItem(itemName: "Read a book"))
+        self.toDoItems.append(ToDoItem(itemName: "Buy milk"))
+        self.toDoItems.append(ToDoItem(itemName: "Buy eggs"))
+        self.toDoItems.append(ToDoItem(itemName: "Read a book"))
     }
+    
+    // MARK: Table view controller
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +29,28 @@ class ToDoListTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.todoItems.count
+        return self.toDoItems.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("ListPrototypeCell", forIndexPath: indexPath) as UITableViewCell
-        let toDoItem = self.todoItems[indexPath.row]
+        let toDoItem = self.toDoItems[indexPath.row]
         cell.textLabel.text = toDoItem.itemName
+        if toDoItem.completed {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
         return cell
+    }
+    
+    // MARK: Table view delegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        let tappedItem = self.toDoItems[indexPath.row]
+        tappedItem.completed = !tappedItem.completed
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
     }
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
