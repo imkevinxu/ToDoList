@@ -15,6 +15,7 @@
 		21DA54BF1A24C66A0015C3EE /* AddToDoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54BE1A24C66A0015C3EE /* AddToDoItemViewController.swift */; };
 		21DA54C51A24C7B00015C3EE /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54C41A24C7B00015C3EE /* ToDoListTableViewController.swift */; };
 		21DA54C71A24D0120015C3EE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54C61A24D0120015C3EE /* ToDoItem.swift */; };
+		AE966C0B78DE7891B51B225C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8CDF0306F12544C23C6864 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A8CDF0306F12544C23C6864 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D06FF029878F0738204238B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		21BE294F1A24AF6100718880 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BE29531A24AF6100718880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BE29541A24AF6100718880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		21DA54BE1A24C66A0015C3EE /* AddToDoItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToDoItemViewController.swift; sourceTree = "<group>"; };
 		21DA54C41A24C7B00015C3EE /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewController.swift; sourceTree = "<group>"; };
 		21DA54C61A24D0120015C3EE /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		64DE5BE5A7D0537ADCA69740 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE966C0B78DE7891B51B225C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 				21BE29511A24AF6100718880 /* ToDoList */,
 				21BE29671A24AF6200718880 /* ToDoListTests */,
 				21BE29501A24AF6100718880 /* Products */,
+				4E49C52EE2BE69D83489122F /* Pods */,
+				7039C85682512B76179BFDE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +125,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4E49C52EE2BE69D83489122F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64DE5BE5A7D0537ADCA69740 /* Pods.debug.xcconfig */,
+				1D06FF029878F0738204238B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7039C85682512B76179BFDE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A8CDF0306F12544C23C6864 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21BE296E1A24AF6200718880 /* Build configuration list for PBXNativeTarget "ToDoList" */;
 			buildPhases = (
+				68D076BB7B1FBDF24856AB23 /* Check Pods Manifest.lock */,
 				21BE294B1A24AF6100718880 /* Sources */,
 				21BE294C1A24AF6100718880 /* Frameworks */,
 				21BE294D1A24AF6100718880 /* Resources */,
+				2C9CE136F94E8E67B659151E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C9CE136F94E8E67B659151E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68D076BB7B1FBDF24856AB23 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		21BE294B1A24AF6100718880 /* Sources */ = {
@@ -343,23 +402,29 @@
 		};
 		21BE296F1A24AF6200718880 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64DE5BE5A7D0537ADCA69740 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		21BE29701A24AF6200718880 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D06FF029878F0738204238B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ToDoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
