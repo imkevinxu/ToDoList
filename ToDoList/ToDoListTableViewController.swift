@@ -22,6 +22,21 @@ class ToDoListTableViewController: UITableViewController {
         self.loadInitialData()
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.todoItems.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("ListPrototypeCell", forIndexPath: indexPath) as UITableViewCell
+        let toDoItem = self.todoItems[indexPath.row]
+        cell.textLabel.text = toDoItem.itemName
+        return cell
+    }
+    
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
         
     }
