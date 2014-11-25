@@ -51,9 +51,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <exit id="utN-JT-AtW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="478"/>
+            <point key="canvasLocation" x="1791" y="170"/>
         </scene>
-        <!--My To-Do List-->
+        <!--To-Do List-->
         <scene sceneID="K4F-JT-3kU">
             <objects>
                 <tableViewController id="3Vj-KY-hy2" customClass="ToDoListTableViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,7 +83,12 @@
                             <outlet property="delegate" destination="3Vj-KY-hy2" id="mmT-qZ-8Or"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My To-Do List" id="lMo-M6-PrP">
+                    <navigationItem key="navigationItem" title="To-Do List" id="lMo-M6-PrP">
+                        <barButtonItem key="leftBarButtonItem" title="HTTP" id="4Zl-WF-ODc">
+                            <connections>
+                                <segue destination="m63-FR-uCn" kind="show" id="82G-1F-URI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DHC-oA-Zu6">
                             <connections>
                                 <segue destination="2FS-dN-N0N" kind="presentation" id="PAt-OU-OyI"/>
@@ -94,6 +99,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYV-r2-PSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="415" y="478"/>
+        </scene>
+        <!--HTTP Methods-->
+        <scene sceneID="Jwt-zH-0gW">
+            <objects>
+                <viewController id="m63-FR-uCn" customClass="HTTPMethodsViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YQ9-sk-JKF"/>
+                        <viewControllerLayoutGuide type="bottom" id="E3L-F6-xCg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wgy-Af-gzo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HTTP Methods" id="NZV-WQ-mOz">
+                        <barButtonItem key="leftBarButtonItem" id="fcr-Sq-36V"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ri-1v-H9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1155" y="884"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ioS-0g-50l">
@@ -129,7 +155,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nF1-jW-wf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161" y="478"/>
+            <point key="canvasLocation" x="1155" y="170"/>
         </scene>
     </scenes>
 </document>

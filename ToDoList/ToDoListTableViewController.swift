@@ -20,17 +20,6 @@ class ToDoListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.readToDoItemsFromUserDefaults()
-        
-        let manager = AFHTTPRequestOperationManager()
-        manager.GET("http://httpbin.org/get",
-            parameters: nil,
-            success: {(operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                println("HTTP GET SUCCESS!!!!")
-                println(responseObject)
-            }, failure: {(operation: AFHTTPRequestOperation!, error: NSError!) in
-                println("Failure")
-            }
-        )
     }
     
     // MARK: UITableViewDataSource
@@ -86,6 +75,7 @@ class ToDoListTableViewController: UITableViewController {
             self.toDoItems.append(newItem)
             self.writeToDoItemsToUserDefaults()
             self.tableView.reloadData()
+            SVProgressHUD.showSuccessWithStatus("Successfully added!")
         }
     }
     
