@@ -9,10 +9,14 @@
 import UIKit
 
 class AddToDoItemViewController: UIViewController {
-    var todoItem: ToDoItem?
     
+    // MARK: Properties
+    
+    var todoItem: ToDoItem?
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    
+    // MARK: Init methods
     
     override func viewDidLoad() {
         super.viewDidLoad()

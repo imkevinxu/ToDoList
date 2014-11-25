@@ -9,9 +9,14 @@
 import UIKit
 
 class ToDoItem: NSObject {
+    
+    // MARK: Properties
+    
     var itemName: String
     var completed: Bool = false
     private var creationDate: NSDate
+    
+    // MARK: Init methods
     
     init(itemName: String) {
         self.itemName = itemName
@@ -22,6 +27,8 @@ class ToDoItem: NSObject {
     override var description: String {
         return "ToDoItem: \(itemName)"
     }
+    
+    // MARK: Encoding methods
     
     func initWithCoder(decoder: NSCoder) -> ToDoItem {
         itemName = decoder.decodeObjectForKey("itemName") as String

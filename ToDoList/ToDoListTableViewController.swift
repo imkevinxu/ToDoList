@@ -9,8 +9,13 @@
 import UIKit
 
 class ToDoListTableViewController: UITableViewController {
+    
+    // MARK: Properties
+    
     let defaults = NSUserDefaults.standardUserDefaults()
     var toDoItems: [ToDoItem] = []
+    
+    // MARK: NSUserDefaults helper methods
     
     func writeToDoItemsToUserDefaults() {
         let data = NSKeyedArchiver.archivedDataWithRootObject(self.toDoItems) as NSData?
@@ -75,6 +80,8 @@ class ToDoListTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    // MARK: Segue methods
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
         let source = segue.sourceViewController as AddToDoItemViewController
