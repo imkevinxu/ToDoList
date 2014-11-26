@@ -113,9 +113,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="HTTP Methods" id="NZV-WQ-mOz">
-                        <barButtonItem key="leftBarButtonItem" id="fcr-Sq-36V"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="HTTP Methods" id="NZV-WQ-mOz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ri-1v-H9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

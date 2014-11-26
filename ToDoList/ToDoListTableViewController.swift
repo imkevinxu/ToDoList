@@ -12,7 +12,6 @@ class ToDoListTableViewController: UITableViewController {
     
     // MARK: Properties
     
-    let defaults = NSUserDefaults.standardUserDefaults()
     var toDoItems: [ToDoItem] = []
     
     // MARK: View Life Cycle
@@ -82,13 +81,14 @@ class ToDoListTableViewController: UITableViewController {
     // MARK: Convenience
     
     func writeToDoItemsToUserDefaults() {
+        let defaults = NSUserDefaults.standardUserDefaults()
         let data = NSKeyedArchiver.archivedDataWithRootObject(self.toDoItems) as NSData?
-        self.defaults.setObject(data, forKey: "toDoItems")
-        self.defaults.synchronize()
+        defaults.setObject(data, forKey: "toDoItems")
+        defaults.synchronize()
     }
     
     func readToDoItemsFromUserDefaults() {
-        let data = self.defaults.objectForKey("toDoItems") as? NSData
+        let data = NSUserDefaults.standardUserDefaults().objectForKey("toDoItems") as? NSData
         if data != nil {
             self.toDoItems = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as [ToDoItem]
         } else {
