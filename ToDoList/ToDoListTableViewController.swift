@@ -51,7 +51,9 @@ class ToDoListTableViewController: UITableViewController, AddToDoItemViewControl
         }
         for gestureRecognizer in tableView.gestureRecognizers! {
             if gestureRecognizer is UILongPressGestureRecognizer && gestureRecognizer.state == UIGestureRecognizerState.Began {
-                cell.textLabel.text = "Created: \(toDoItem.getCreationDate())"
+                let creationDateString = NSMutableAttributedString(string: "Created: \(toDoItem.getCreationDate())")
+                creationDateString.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFontOfSize(16.0), range: NSMakeRange(0, 8))
+                cell.textLabel.attributedText = creationDateString
             }
         }
         return cell
