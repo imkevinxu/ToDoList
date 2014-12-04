@@ -36,7 +36,6 @@ class ToDoListTableViewController: UITableViewController {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("ListPrototypeCell", forIndexPath: indexPath) as UITableViewCell
         let toDoItem = self.toDoItems[indexPath.row]
         cell.textLabel.text = toDoItem.itemName
-        cell.detailTextLabel!.text = ""
         if toDoItem.completed {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         } else {
@@ -44,7 +43,7 @@ class ToDoListTableViewController: UITableViewController {
         }
         for gestureRecognizer in tableView.gestureRecognizers! {
             if gestureRecognizer is UILongPressGestureRecognizer && gestureRecognizer.state == UIGestureRecognizerState.Began {
-                cell.detailTextLabel!.text = toDoItem.getCreationDate()
+                cell.textLabel.text = "Created: \(toDoItem.getCreationDate())"
             }
         }
         return cell
