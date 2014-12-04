@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ToDoListTableViewController: UITableViewController {
+class ToDoListTableViewController: UITableViewController, AddToDoItemViewControllerDelegate {
     
     // MARK: Properties
     
@@ -20,6 +20,14 @@ class ToDoListTableViewController: UITableViewController {
         super.viewDidLoad()
         self.readToDoItemsFromUserDefaults()
         self.addGestureRecognizers()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "addToDoItemSegue" {
+            let navigationController = segue.destinationViewController as UINavigationController
+            let destination = navigationController.topViewController as AddToDoItemViewController
+            destination.numToDoItems = self.toDoItems.count
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -70,6 +78,15 @@ class ToDoListTableViewController: UITableViewController {
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
+    // MARK: AddToDoItemViewControllerDelegate
+    
+    func addNewItem(toDoItem: ToDoItem) {
+        self.toDoItems.append(toDoItem)
+        self.writeToDoItemsToUserDefaults()
+        self.tableView.reloadData()
+        SVProgressHUD.showSuccessWithStatus("Successfully added!")
+    }
+    
     // MARK: UIGestureRecognizer
     
     func addGestureRecognizers() {
@@ -87,19 +104,10 @@ class ToDoListTableViewController: UITableViewController {
             }
         }
     }
-    
-    // MARK: IBActions
 
-    @IBAction func unwindToList(segue: UIStoryboardSegue) {
-        let source = segue.sourceViewController as AddToDoItemViewController
-        let item = source.todoItem
-        if let newItem = item {
-            self.toDoItems.append(newItem)
-            self.writeToDoItemsToUserDefaults()
-            self.tableView.reloadData()
-            SVProgressHUD.showSuccessWithStatus("Successfully added!")
-        }
-    }
+    // MARK: IBActions
+    
+    @IBAction func unwindToList(segue: UIStoryboardSegue) {}
     
     // MARK: Convenience
     

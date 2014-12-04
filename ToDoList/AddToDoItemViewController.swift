@@ -8,30 +8,35 @@
 
 import UIKit
 
+protocol AddToDoItemViewControllerDelegate {
+    func addNewItem(toDoItem: ToDoItem)
+}
+
 class AddToDoItemViewController: UIViewController {
     
     // MARK: Properties
     
-    var todoItem: ToDoItem?
+    var toDoItem: ToDoItem?
+    var numToDoItems: Int = 0
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var numItemsLabel: UILabel!
+    
+    var delegate: AddToDoItemViewControllerDelegate?
     
     // MARK: View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        self.numItemsLabel.text = "Currently \(self.numToDoItems) To-Do Items"
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender as UIBarButtonItem == self.doneButton {
             if countElements(self.textField.text) > 0 {
-                self.todoItem = ToDoItem(itemName: self.textField.text)
+                self.delegate = segue.destinationViewController as ToDoListTableViewController
+                self.delegate!.addNewItem(ToDoItem(itemName: self.textField.text))
             }
         }
     }
-    
 }

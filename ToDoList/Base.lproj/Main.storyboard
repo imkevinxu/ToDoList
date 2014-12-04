@@ -22,29 +22,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently # To-Do Items" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGB-zY-8EU">
+                                <rect key="frame" x="209" y="264" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZBK-AI-u1D" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="00m-Fh-fnN"/>
                             <constraint firstItem="ZBK-AI-u1D" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="1OG-va-ERJ"/>
+                            <constraint firstItem="rGB-zY-8EU" firstAttribute="top" secondItem="ZBK-AI-u1D" secondAttribute="bottom" constant="60" id="30H-EX-wVJ"/>
                             <constraint firstItem="ZBK-AI-u1D" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="110" id="Df6-Ss-H4P"/>
+                            <constraint firstAttribute="centerX" secondItem="rGB-zY-8EU" secondAttribute="centerX" id="XnR-Il-JQU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add To-Do Item" id="eKC-hX-2DZ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CRm-E9-sxe">
                             <connections>
-                                <segue destination="utN-JT-AtW" kind="unwind" unwindAction="unwindToList:" id="TDq-NC-6Cx"/>
+                                <segue destination="utN-JT-AtW" kind="unwind" unwindAction="unwindToList:" id="CDE-hI-Jmb"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Wem-oq-NtP">
                             <connections>
                                 <action selector="as:" destination="vXZ-lx-hvc" id="VVW-H8-ofZ"/>
-                                <segue destination="utN-JT-AtW" kind="unwind" unwindAction="unwindToList:" id="T0w-xV-WXN"/>
+                                <segue destination="utN-JT-AtW" kind="unwind" unwindAction="unwindToList:" id="JoK-ER-nsx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="Wem-oq-NtP" id="oeP-l8-XvW"/>
+                        <outlet property="numItemsLabel" destination="rGB-zY-8EU" id="AL4-KL-FfV"/>
                         <outlet property="textField" destination="ZBK-AI-u1D" id="rXO-oW-sHj"/>
                     </connections>
                 </viewController>
@@ -91,7 +100,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DHC-oA-Zu6">
                             <connections>
-                                <segue destination="2FS-dN-N0N" kind="presentation" id="PAt-OU-OyI"/>
+                                <segue destination="2FS-dN-N0N" kind="presentation" identifier="addToDoItemSegue" id="PAt-OU-OyI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
