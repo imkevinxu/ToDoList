@@ -16,6 +16,7 @@
 		21DA54BF1A24C66A0015C3EE /* AddToDoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54BE1A24C66A0015C3EE /* AddToDoItemViewController.swift */; };
 		21DA54C51A24C7B00015C3EE /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54C41A24C7B00015C3EE /* ToDoListTableViewController.swift */; };
 		21DA54C71A24D0120015C3EE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54C61A24D0120015C3EE /* ToDoItem.swift */; };
+		21EA43071A310BDF00FB8EB4 /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21EA43061A310BDF00FB8EB4 /* DefaultPreferences.plist */; };
 		AE966C0B78DE7891B51B225C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8CDF0306F12544C23C6864 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		21DA54BE1A24C66A0015C3EE /* AddToDoItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToDoItemViewController.swift; sourceTree = "<group>"; };
 		21DA54C41A24C7B00015C3EE /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewController.swift; sourceTree = "<group>"; };
 		21DA54C61A24D0120015C3EE /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		21EA43061A310BDF00FB8EB4 /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		64DE5BE5A7D0537ADCA69740 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				21BE295B1A24AF6100718880 /* Images.xcassets */,
-				21BE29521A24AF6100718880 /* Supporting Files */,
+				21BE29521A24AF6100718880 /* Property Lists */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -145,12 +147,13 @@
 			path = ToDoList;
 			sourceTree = "<group>";
 		};
-		21BE29521A24AF6100718880 /* Supporting Files */ = {
+		21BE29521A24AF6100718880 /* Property Lists */ = {
 			isa = PBXGroup;
 			children = (
 				21BE29531A24AF6100718880 /* Info.plist */,
+				21EA43061A310BDF00FB8EB4 /* DefaultPreferences.plist */,
 			);
-			name = "Supporting Files";
+			name = "Property Lists";
 			sourceTree = "<group>";
 		};
 		21BE29671A24AF6200718880 /* ToDoListTests */ = {
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BE295A1A24AF6100718880 /* Main.storyboard in Resources */,
+				21EA43071A310BDF00FB8EB4 /* DefaultPreferences.plist in Resources */,
 				21BE295F1A24AF6100718880 /* LaunchScreen.xib in Resources */,
 				21BE295C1A24AF6100718880 /* Images.xcassets in Resources */,
 			);

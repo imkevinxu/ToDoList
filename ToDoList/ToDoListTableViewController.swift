@@ -116,12 +116,12 @@ class ToDoListTableViewController: UITableViewController, AddToDoItemViewControl
     func writeToDoItemsToUserDefaults() {
         let defaults = NSUserDefaults.standardUserDefaults()
         let data = NSKeyedArchiver.archivedDataWithRootObject(self.toDoItems) as NSData?
-        defaults.setObject(data, forKey: "toDoItems")
+        defaults.setObject(data, forKey: "ToDoItems")
         defaults.synchronize()
     }
     
     func readToDoItemsFromUserDefaults() {
-        let data = NSUserDefaults.standardUserDefaults().objectForKey("toDoItems") as NSData?
+        let data = NSUserDefaults.standardUserDefaults().objectForKey("ToDoItems") as NSData?
         if data != nil {
             self.toDoItems = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as [ToDoItem]
         } else {
