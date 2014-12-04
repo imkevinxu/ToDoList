@@ -19,6 +19,7 @@ class ToDoListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.readToDoItemsFromUserDefaults()
+        self.addGestureRecognizers()
     }
     
     // MARK: UITableViewDataSource
@@ -35,10 +36,16 @@ class ToDoListTableViewController: UITableViewController {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("ListPrototypeCell", forIndexPath: indexPath) as UITableViewCell
         let toDoItem = self.toDoItems[indexPath.row]
         cell.textLabel.text = toDoItem.itemName
+        cell.detailTextLabel!.text = ""
         if toDoItem.completed {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.None
+        }
+        for gestureRecognizer in tableView.gestureRecognizers! {
+            if gestureRecognizer is UILongPressGestureRecognizer && gestureRecognizer.state == UIGestureRecognizerState.Began {
+                cell.detailTextLabel!.text = toDoItem.getCreationDate()
+            }
         }
         return cell
     }
@@ -58,11 +65,28 @@ class ToDoListTableViewController: UITableViewController {
     // MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
         let tappedItem = self.toDoItems[indexPath.row]
         tappedItem.completed = !tappedItem.completed
         self.writeToDoItemsToUserDefaults()
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+    }
+    
+    // MARK: UIGestureRecognizer
+    
+    func addGestureRecognizers() {
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("revealCreationDate:"))
+        gestureRecognizer.minimumPressDuration = 0.3
+        self.tableView.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func revealCreationDate(gestureRecognizer: UIGestureRecognizer) {
+        if gestureRecognizer.state == UIGestureRecognizerState.Began || gestureRecognizer.state == UIGestureRecognizerState.Ended {
+            let location = gestureRecognizer.locationInView(self.tableView)
+            let heldIndexPath = self.tableView.indexPathForRowAtPoint(location) as NSIndexPath?
+            if let indexPath = heldIndexPath {
+                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            }
+        }
     }
     
     // MARK: IBActions
@@ -88,7 +112,7 @@ class ToDoListTableViewController: UITableViewController {
     }
     
     func readToDoItemsFromUserDefaults() {
-        let data = NSUserDefaults.standardUserDefaults().objectForKey("toDoItems") as? NSData
+        let data = NSUserDefaults.standardUserDefaults().objectForKey("toDoItems") as NSData?
         if data != nil {
             self.toDoItems = NSKeyedUnarchiver.unarchiveObjectWithData(data!) as [ToDoItem]
         } else {

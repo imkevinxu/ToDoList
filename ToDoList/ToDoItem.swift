@@ -20,7 +20,7 @@ class ToDoItem: NSObject {
     
     init(itemName: String) {
         self.itemName = itemName
-        creationDate = NSDate()
+        self.creationDate = NSDate()
         super.init()
     }
     
@@ -28,11 +28,20 @@ class ToDoItem: NSObject {
         return "ToDoItem: \(itemName)"
     }
     
+    // MARK: Helpers
+    
+    func getCreationDate() -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEE MMM d, yyy 'at' h:mm a"
+        return dateFormatter.stringFromDate(creationDate)
+    }
+    
     // MARK: Encoding methods
     
     func initWithCoder(decoder: NSCoder) -> ToDoItem {
         itemName = decoder.decodeObjectForKey("itemName") as String
         completed = decoder.decodeBoolForKey("completed")
+        creationDate = decoder.decodeObjectForKey("creationDate") as NSDate
         return self
     }
     
