@@ -23,5 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaultPreferences = NSDictionary(contentsOfURL: defaultPreferencesFile)!
         NSUserDefaults.standardUserDefaults().registerDefaults(defaultPreferences)
     }
+    
+    func setDummyKeychainPassword() {
+        SSKeychain.setPassword("password", forService: "ToDoList", account: "user")
+    }
+    
+    func getDummyKeychainPassword() -> String {
+        return SSKeychain.passwordForService("ToDoList", account: "user")
+    }
 }
 
