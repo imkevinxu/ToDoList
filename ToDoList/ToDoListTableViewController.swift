@@ -92,7 +92,7 @@ class ToDoListTableViewController: UITableViewController, AddToDoItemViewControl
     // MARK: UIGestureRecognizer
     
     func addGestureRecognizers() {
-        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: Selector("revealCreationDate:"))
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: "revealCreationDate:")
         gestureRecognizer.minimumPressDuration = 0.3
         self.tableView.addGestureRecognizer(gestureRecognizer)
     }
