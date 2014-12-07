@@ -45,8 +45,8 @@
 		21BE29591A24AF6100718880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21BE295B1A24AF6100718880 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		21BE29641A24AF6200718880 /* ToDoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		21BE29691A24AF6200718880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21BE296A1A24AF6200718880 /* ToDoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTests.swift; sourceTree = "<group>"; };
+		21BE29691A24AF6200718880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Tests/Info.plist; sourceTree = "<group>"; };
+		21BE296A1A24AF6200718880 /* ToDoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToDoListTests.swift; path = ../Tests/ToDoListTests.swift; sourceTree = "<group>"; };
 		21DA54BE1A24C66A0015C3EE /* AddToDoItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToDoItemViewController.swift; sourceTree = "<group>"; };
 		21DA54C41A24C7B00015C3EE /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewController.swift; sourceTree = "<group>"; };
 		21DA54C61A24D0120015C3EE /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				21BE29511A24AF6100718880 /* ToDoList */,
-				21BE29671A24AF6200718880 /* ToDoListTests */,
+				21BE29671A24AF6200718880 /* Tests */,
 				21BE29501A24AF6100718880 /* Products */,
 				4E49C52EE2BE69D83489122F /* Pods */,
 				7039C85682512B76179BFDE5 /* Frameworks */,
@@ -163,12 +163,13 @@
 			name = "Property Lists";
 			sourceTree = "<group>";
 		};
-		21BE29671A24AF6200718880 /* ToDoListTests */ = {
+		21BE29671A24AF6200718880 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				21BE296A1A24AF6200718880 /* ToDoListTests.swift */,
 				21BE29681A24AF6200718880 /* Supporting Files */,
 			);
+			name = Tests;
 			path = ToDoListTests;
 			sourceTree = "<group>";
 		};
