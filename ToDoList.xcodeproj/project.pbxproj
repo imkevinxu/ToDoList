@@ -19,6 +19,7 @@
 		21DA54C51A24C7B00015C3EE /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54C41A24C7B00015C3EE /* ToDoListTableViewController.swift */; };
 		21DA54C71A24D0120015C3EE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54C61A24D0120015C3EE /* ToDoItem.swift */; };
 		21EA43071A310BDF00FB8EB4 /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21EA43061A310BDF00FB8EB4 /* DefaultPreferences.plist */; };
+		21EA430E1A34D67D00FB8EB4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EA430D1A34D67D00FB8EB4 /* SwiftyJSON.swift */; };
 		AE966C0B78DE7891B51B225C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A8CDF0306F12544C23C6864 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		21DA54C61A24D0120015C3EE /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		21EA43061A310BDF00FB8EB4 /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultPreferences.plist; sourceTree = "<group>"; };
 		21EA43081A3111DB00FB8EB4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		21EA430D1A34D67D00FB8EB4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		64DE5BE5A7D0537ADCA69740 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				2163ED3C1A2FFECC002181A2 /* Headers */,
+				21EA430A1A34D64500FB8EB4 /* Libraries */,
 				2163ED381A2FFE16002181A2 /* Models */,
 				2163ED391A2FFE1F002181A2 /* Controllers */,
 				2163ED3A1A2FFE31002181A2 /* Views */,
@@ -178,6 +181,14 @@
 				21BE29691A24AF6200718880 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		21EA430A1A34D64500FB8EB4 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				21EA430D1A34D67D00FB8EB4 /* SwiftyJSON.swift */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		4E49C52EE2BE69D83489122F /* Pods */ = {
@@ -341,6 +352,7 @@
 				21DA54C71A24D0120015C3EE /* ToDoItem.swift in Sources */,
 				216439B41A2511EB00342169 /* HTTPMethodsViewController.swift in Sources */,
 				21ACE5E91A33CDE9001D483C /* HTTPResponseViewController.swift in Sources */,
+				21EA430E1A34D67D00FB8EB4 /* SwiftyJSON.swift in Sources */,
 				21DA54C51A24C7B00015C3EE /* ToDoListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

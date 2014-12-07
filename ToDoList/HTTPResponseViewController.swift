@@ -26,10 +26,16 @@ class HTTPResponseViewController: UIViewController {
     
     func makeLayout() {
         if self.responseObject != nil {
-            self.responseMessage.text = self.responseObject!["origin"] as String!
-            self.responseMessage.hidden = false
+            // Old Swift way
+            // if let responseURL = self.responseObject!["url"] as? String {
+            //     self.responseMessage.text = responseURL
+            // }
             
-            self.responseField.text = self.responseObject!.description
+            // SwiftyJSON way
+            let responseJSON = JSON(self.responseObject!)
+            self.responseMessage.text = responseJSON["url"].string
+            
+            self.responseField.text = responseJSON.description
             self.responseField.layer.borderColor = UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1).CGColor
             self.responseField.layer.borderWidth = 0.6
             self.responseField.layer.cornerRadius = 6.0
