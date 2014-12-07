@@ -39,6 +39,8 @@ class HTTPResponseViewController: UIViewController {
             self.responseField.layer.borderColor = UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1).CGColor
             self.responseField.layer.borderWidth = 0.6
             self.responseField.layer.cornerRadius = 6.0
+            
+            self.responseField.scrollRangeToVisible(NSMakeRange(0, 0))
         }
         
         self.doneButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)

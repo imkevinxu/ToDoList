@@ -71,78 +71,25 @@ class HTTPMethodsViewController: UIViewController {
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(topMargin)-[welcomeMessage]-(spaceMargin)-[getButton]-(spaceMargin)-[errorButton]-(spaceMargin)-[postButton]-(spaceMargin)-[postFileButton]", options: NSLayoutFormatOptions.AlignAllCenterX, metrics: metricsDictionary, views: viewsDictionary))
     }
     
-    // AFNetworking Methods
+    // MARK: UIButton Action Methods
     
     func performGETRequestSuccess(sender: UIButton!) {
         let successURL = NSURL(string: "http://httpbin.org/get") as NSURL!
-        self.performGETRequest(successURL)
+        HTTPHelper.GET(self, url: successURL)
     }
     
     func performGETRequestError(sender: UIButton!) {
         let errorURL = NSURL(string: "http://httpbin.org/error") as NSURL!
-        self.performGETRequest(errorURL)
-    }
-    
-    func performGETRequest(url: NSURL) {
-        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeBlack))
-        let manager = AFHTTPRequestOperationManager()
-        manager.GET(url.absoluteString,
-            parameters: nil,
-            success: {(operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                let responseViewController = HTTPResponseViewController(nibName: "HTTPResponseView", bundle: nil)
-                responseViewController.responseObject = responseObject
-                self.presentViewController(responseViewController, animated: true, completion: {
-                    SVProgressHUD.showSuccessWithStatus("Success")
-                })
-            }, failure: {(operation: AFHTTPRequestOperation!, error: NSError!) in
-                SVProgressHUD.showErrorWithStatus("Error")
-            }
-        )
+        HTTPHelper.GET(self, url: errorURL)
     }
     
     func performPOSTRequest(sender: UIButton!) {
-        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeBlack))
-        let manager = AFHTTPRequestOperationManager()
-        let parameters = [
-            "foo": "bar"
-        ]
-        manager.POST("http://httpbin.org/post",
-            parameters: parameters,
-            success: {(operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                let responseViewController = HTTPResponseViewController(nibName: "HTTPResponseView", bundle: nil)
-                responseViewController.responseObject = responseObject
-                self.presentViewController(responseViewController, animated: true, completion: {
-                    SVProgressHUD.showSuccessWithStatus("Success")
-                })
-            }, failure: {(operation: AFHTTPRequestOperation!, error: NSError!) in
-                SVProgressHUD.showErrorWithStatus("Error")
-            }
-        )
+        let postURL = NSURL(string: "http://httpbin.org/post") as NSURL!
+        HTTPHelper.POST(self, url: postURL, parameters: ["foo": "bar"])
     }
     
     func performPOSTFileRequest(sender: UIButton!) {
-        SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeBlack))
-        let manager = AFHTTPRequestOperationManager()
-        let parameters = [
-            "foo": "bar"
-        ]
-        let filePath = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Info", ofType: "plist")!)
-        manager.POST("http://httpbin.org/post",
-            parameters: parameters,
-            constructingBodyWithBlock: {(formData: AFMultipartFormData!) in
-                formData.appendPartWithFileURL(filePath, name: "info", error: nil)
-                SVProgressHUD.showWithMaskType(UInt(SVProgressHUDMaskTypeBlack))
-            }, success: {(operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                let responseViewController = HTTPResponseViewController(nibName: "HTTPResponseView", bundle: nil)
-                responseViewController.responseObject = responseObject
-                self.presentViewController(responseViewController, animated: true, completion: {
-                    SVProgressHUD.showSuccessWithStatus("Success")
-                })
-            }, failure: {(operation: AFHTTPRequestOperation!, error: NSError!) in
-                SVProgressHUD.showErrorWithStatus("Error")
-            }
-        )
+        let postURL = NSURL(string: "http://httpbin.org/post") as NSURL!
+        HTTPHelper.POST(self, url: postURL, parameters: ["foo": "bar"], filePath: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("Info", ofType: "plist")!)!)
     }
-    
-    
 }

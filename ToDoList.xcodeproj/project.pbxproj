@@ -14,6 +14,7 @@
 		21BE295A1A24AF6100718880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BE29581A24AF6100718880 /* Main.storyboard */; };
 		21BE295C1A24AF6100718880 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BE295B1A24AF6100718880 /* Images.xcassets */; };
 		21BE296B1A24AF6200718880 /* ToDoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE296A1A24AF6200718880 /* ToDoListTests.swift */; };
+		21C8F8891A34E83B0011B6EB /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C8F8881A34E83B0011B6EB /* HTTPHelper.swift */; };
 		21DA54BF1A24C66A0015C3EE /* AddToDoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54BE1A24C66A0015C3EE /* AddToDoItemViewController.swift */; };
 		21DA54C51A24C7B00015C3EE /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54C41A24C7B00015C3EE /* ToDoListTableViewController.swift */; };
 		21DA54C71A24D0120015C3EE /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA54C61A24D0120015C3EE /* ToDoItem.swift */; };
@@ -47,6 +48,7 @@
 		21BE29641A24AF6200718880 /* ToDoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BE29691A24AF6200718880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Tests/Info.plist; sourceTree = "<group>"; };
 		21BE296A1A24AF6200718880 /* ToDoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToDoListTests.swift; path = ../Tests/ToDoListTests.swift; sourceTree = "<group>"; };
+		21C8F8881A34E83B0011B6EB /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPHelper.swift; path = Helpers/HTTPHelper.swift; sourceTree = "<group>"; };
 		21DA54BE1A24C66A0015C3EE /* AddToDoItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddToDoItemViewController.swift; path = Controllers/AddToDoItemViewController.swift; sourceTree = "<group>"; };
 		21DA54C41A24C7B00015C3EE /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoListTableViewController.swift; path = Controllers/ToDoListTableViewController.swift; sourceTree = "<group>"; };
 		21DA54C61A24D0120015C3EE /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoItem.swift; path = Models/ToDoItem.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				2163ED381A2FFE16002181A2 /* Models */,
 				2163ED391A2FFE1F002181A2 /* Controllers */,
 				2163ED3A1A2FFE31002181A2 /* Views */,
+				21C8F8871A34E7D90011B6EB /* Helpers */,
 				2163ED3B1A2FFEAB002181A2 /* Resources */,
 				2163ED3C1A2FFECC002181A2 /* Headers */,
 				21EA430A1A34D64500FB8EB4 /* Libraries */,
@@ -179,6 +182,14 @@
 				21BE29691A24AF6200718880 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		21C8F8871A34E7D90011B6EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				21C8F8881A34E83B0011B6EB /* HTTPHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		21EA430A1A34D64500FB8EB4 /* Libraries */ = {
@@ -355,6 +366,7 @@
 				21BE29551A24AF6100718880 /* AppDelegate.swift in Sources */,
 				21DA54BF1A24C66A0015C3EE /* AddToDoItemViewController.swift in Sources */,
 				21DA54C71A24D0120015C3EE /* ToDoItem.swift in Sources */,
+				21C8F8891A34E83B0011B6EB /* HTTPHelper.swift in Sources */,
 				216439B41A2511EB00342169 /* HTTPMethodsViewController.swift in Sources */,
 				21ACE5E91A33CDE9001D483C /* HTTPResponseViewController.swift in Sources */,
 				21EA430E1A34D67D00FB8EB4 /* SwiftyJSON.swift in Sources */,
