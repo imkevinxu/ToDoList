@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		216439B41A2511EB00342169 /* HTTPMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216439B31A2511EB00342169 /* HTTPMethodsViewController.swift */; };
+		21ACE5E51A33CB18001D483C /* HTTPResponseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21ACE5E31A33CB18001D483C /* HTTPResponseView.xib */; };
+		21ACE5E91A33CDE9001D483C /* HTTPResponseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ACE5E81A33CDE9001D483C /* HTTPResponseViewController.swift */; };
 		21BE29551A24AF6100718880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BE29541A24AF6100718880 /* AppDelegate.swift */; };
 		21BE295A1A24AF6100718880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21BE29581A24AF6100718880 /* Main.storyboard */; };
 		21BE295C1A24AF6100718880 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BE295B1A24AF6100718880 /* Images.xcassets */; };
@@ -35,6 +37,8 @@
 		1D06FF029878F0738204238B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		216439B21A250A8900342169 /* ToDoList-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToDoList-Bridging-Header.h"; sourceTree = "<group>"; };
 		216439B31A2511EB00342169 /* HTTPMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethodsViewController.swift; sourceTree = "<group>"; };
+		21ACE5E31A33CB18001D483C /* HTTPResponseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTTPResponseView.xib; sourceTree = "<group>"; };
+		21ACE5E81A33CDE9001D483C /* HTTPResponseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseViewController.swift; sourceTree = "<group>"; };
 		21BE294F1A24AF6100718880 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BE29531A24AF6100718880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BE29541A24AF6100718880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				21DA54C41A24C7B00015C3EE /* ToDoListTableViewController.swift */,
 				21DA54BE1A24C66A0015C3EE /* AddToDoItemViewController.swift */,
 				216439B31A2511EB00342169 /* HTTPMethodsViewController.swift */,
+				21ACE5E81A33CDE9001D483C /* HTTPResponseViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 		2163ED3A1A2FFE31002181A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				21ACE5E31A33CB18001D483C /* HTTPResponseView.xib */,
 				21BE29581A24AF6100718880 /* Main.storyboard */,
 				21BE295D1A24AF6100718880 /* LaunchScreen.xib */,
 			);
@@ -275,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21ACE5E51A33CB18001D483C /* HTTPResponseView.xib in Resources */,
 				21BE295A1A24AF6100718880 /* Main.storyboard in Resources */,
 				21EA43071A310BDF00FB8EB4 /* DefaultPreferences.plist in Resources */,
 				21BE295F1A24AF6100718880 /* LaunchScreen.xib in Resources */,
@@ -333,6 +340,7 @@
 				21DA54BF1A24C66A0015C3EE /* AddToDoItemViewController.swift in Sources */,
 				21DA54C71A24D0120015C3EE /* ToDoItem.swift in Sources */,
 				216439B41A2511EB00342169 /* HTTPMethodsViewController.swift in Sources */,
+				21ACE5E91A33CDE9001D483C /* HTTPResponseViewController.swift in Sources */,
 				21DA54C51A24C7B00015C3EE /* ToDoListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
