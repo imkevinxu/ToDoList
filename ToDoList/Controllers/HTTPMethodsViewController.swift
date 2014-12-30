@@ -46,6 +46,10 @@ class HTTPMethodsViewController: UIViewController {
         postFileButton.setTitle("POST Multi-Part Request", forState: UIControlState.Normal)
         postFileButton.addTarget(self, action: "performPOSTFileRequest:", forControlEvents: UIControlEvents.TouchUpInside)
         
+        let notificationGetButton = RKNotificationHub(view: getButton)
+        notificationGetButton.increment()
+        notificationGetButton.hideCount()
+        
         // Add UIView objects to main View
         self.view.addSubview(welcomeMessage)
         self.view.addSubview(getButton)

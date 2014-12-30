@@ -15,5 +15,6 @@
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <SSKeychain/SSKeychain.h>
+#import <RKNotificationHub/RKNotificationHub.h>
 
 #endif

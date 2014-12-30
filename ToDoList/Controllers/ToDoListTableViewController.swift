@@ -43,7 +43,7 @@ class ToDoListTableViewController: UITableViewController, AddToDoItemViewControl
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("ListPrototypeCell", forIndexPath: indexPath) as UITableViewCell
         let toDoItem = self.toDoItems[indexPath.row]
-        cell.textLabel.text = toDoItem.itemName
+        cell.textLabel!.text = toDoItem.itemName
         if toDoItem.completed {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         } else {
@@ -53,7 +53,7 @@ class ToDoListTableViewController: UITableViewController, AddToDoItemViewControl
             if gestureRecognizer is UILongPressGestureRecognizer && gestureRecognizer.state == UIGestureRecognizerState.Began {
                 let creationDateString = NSMutableAttributedString(string: "Created: \(toDoItem.getCreationDate())")
                 creationDateString.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFontOfSize(16.0), range: NSMakeRange(0, 8))
-                cell.textLabel.attributedText = creationDateString
+                cell.textLabel!.attributedText = creationDateString
             }
         }
         return cell
